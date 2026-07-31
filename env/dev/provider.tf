@@ -16,5 +16,5 @@ backend "azurerm" {
 
 provider "azurerm"{
     features{}
-    subscription_id ="586e3c12-b0f0-4c52-946a-ed23650f6c3a"
+    subscription_id ="05dbb74f-6152-4a1d-a1fd-c49be5c3fd99"
 }
