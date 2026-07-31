@@ -21,7 +21,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    workingDirectory: 'C:\agents\vsts-agent-win-x64-5.276.0\_work\7\s\env\dev'
     backendServiceArm: 'newasr'
     backendAzureRmResourceGroupName: 'for-backend'
     backendAzureRmStorageAccountName: 'pipelinekeliye'
