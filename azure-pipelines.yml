@@ -1,0 +1,17 @@
+
+trigger:
+- main
+
+pool: windows-agent-sonal
+
+steps:
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\env\dev'
+    backendServiceArm: 'asr'
+    backendAzureRmResourceGroupName: 'NetworkWatcherRG'
+    backendAzureRmStorageAccountName: 'forasrpipeline'
+    backendAzureRmContainerName: 'virtualmachine'
+    backendAzureRmKey: 'dev.tfstate'
