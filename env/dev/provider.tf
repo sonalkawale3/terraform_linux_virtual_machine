@@ -8,9 +8,9 @@ terraform{
 
 
 backend "azurerm" {
-    resource_group_name  = "NetworkWatcherRG"
-    storage_account_name = "forasrpipeline"
-    container_name       = "virtualmachine"
+    resource_group_name  = "for-backend"
+    storage_account_name = "pipelinekeliye"
+    container_name       = "pipestorage"
     key                  = "dev.tfstate"
   }
 }
