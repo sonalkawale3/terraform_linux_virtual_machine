@@ -11,7 +11,7 @@ pool: windows-agent-sonal
 parameters:
 - name: run_apply
   displayName: Selection of apply command
-  type: boolean
+  type: string
   default: false
   values:
     - true
