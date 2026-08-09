@@ -8,6 +8,15 @@ trigger:
 
 pool: windows-agent-sonal
 
+parameters:
+- name: run_apply
+  displayName: Selection of apply command
+  type: boolean
+  default: true
+  values:
+    - true
+    - false
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -27,3 +36,18 @@ steps:
     backendAzureRmStorageAccountName: 'pipelinekeliye'
     backendAzureRmContainerName: 'pipestorage'
     backendAzureRmKey: 'dev11.tfstate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\env\dev'
+    environmentServiceNameAzureRM: 'asr'
+
+- task: TerraformTask@5
+  condition: and(succeeded(), ${{ parameters.run_apply }})
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\env\dev'
+    environmentServiceNameAzureRM: 'asr'
