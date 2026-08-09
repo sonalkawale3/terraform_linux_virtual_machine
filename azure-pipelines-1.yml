@@ -12,7 +12,7 @@ parameters:
 - name: run_apply
   displayName: Selection of apply command
   type: boolean
-  default: true
+  default: false
   values:
     - true
     - false
